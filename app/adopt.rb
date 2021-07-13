@@ -1,5 +1,5 @@
 class Adopt < ActiveRecord::Base
-    has_many :adopts
-    has_many :childs, thorugh: :adopts
+    belongs_to :child
+    belongs_to :applicant
 
 end
