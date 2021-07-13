@@ -1,6 +1,6 @@
-class Applicant < ActiveRecord::Migration[5.2]
+class CreateFosterFamilies < ActiveRecord::Migration[5.2]
   def change
-    create_table :applicants do |t|
+    create_table :foster_families do |t|
       t.string :name
       t.integer :income
       t.string :address

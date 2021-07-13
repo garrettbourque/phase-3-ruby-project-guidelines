@@ -1,5 +1,5 @@
 class Applicant < ActiveRecord::Base
 has_many :adopts
-has_many :childs, through: :adopts
+has_many :children, through: :adopts
 
 end

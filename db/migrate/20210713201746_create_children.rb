@@ -1,6 +1,6 @@
-class Child < ActiveRecord::Migration[5.2]
+class CreateChildren < ActiveRecord::Migration[5.2]
   def change
-    create_table :childs do |t|
+    create_table :children do |t|
       t.string :name
       t.integer :age
       t.string :sex
