@@ -12,7 +12,7 @@ class Applicant < ActiveRecord::Base
 
     def adoption(child)
         #if income is >=40000 then the adoption is approved, otherwise declined
-        if self.income/self.children.length + 1 >= 40000
+        if self.income/(self.my_kids.length+1)>= 40000
             puts "Congratulations on being approved!"
             Adopt.create(applicant_id: self.id, child_id: child.id, status: "approved")
         else
@@ -20,6 +20,10 @@ class Applicant < ActiveRecord::Base
             Adopt.create(applicant_id: self.id, child_id: child.id, status: "declined")
 
         end
+    end
+
+    def my_kids
+        self.adopts.select{|applications| applications.status==="approved"}
     end
 
 end
