@@ -28,10 +28,12 @@ menu_choice = prompt.select('What would you like to do?', ["Login","Signup"])
 
         while choice do
             user_name=prompt.ask("Name: ")
-            user=option.all.select{|person| person.name.downcase===user_name.downcase}
+            userlist=option.all.select{|person| person.name.downcase===user_name.downcase}
             
-            if user.length>0
-                puts "#{user.first.name} has signed in."
+            if userlist.length>0
+                user=userlist.first
+                puts "#{user.name} has signed in."
+                
                 choice=false
             else
                 puts "Username not found. Please try again."
@@ -58,14 +60,29 @@ menu_choice = prompt.select('What would you like to do?', ["Login","Signup"])
         user=option.all.last
         puts "#{user.name} has signed in."
     end
-
-    menu_choice = prompt.select('What would you like to do?', ["View list of available children","View list of my children","Change my income", "Change my address"])
+    choice=true
+    while choice do
+        menu_choice = prompt.select('What would you like to do?', ["View list of available children","View list of my children","Change my income", "Change my address", "Care for a child"])
         if menu_choice === "View list of available children"
-            
-        elsif menu_choice === "View List of my children"
+            user.available_children            
+        elsif menu_choice === "View list of my children"
+            user.my_kids.map{|kids| puts kids.child.name}
         elsif menu_choice === "Change my income"
+            new_income=prompt.ask("Please enter a new income:")
+            user.change_income(new_income)
         elsif menu_choice === "Change my address"
+            new_address=prompt.ask("Please enter a new address:")
+            user.change_address(new_address)
+        elsif menu_choice ==="Care for a child"
+            #need to list out kids and then have them as choices
+            child_choice = prompt.select('Which would you like?',[user.obtainable_children])
+            
         end
+        continue = prompt.select('Would you like to go to main menu or exit?', ["Main Menu","Exit"])
+        if continue == "Exit"
+            choice=false
+        end
+    end
 
 
 

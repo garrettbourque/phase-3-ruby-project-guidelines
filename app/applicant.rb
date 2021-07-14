@@ -41,4 +41,14 @@ class Applicant < ActiveRecord::Base
 
     end
 
+    def available_children
+        Child.adopt_available.map{|children| puts "#{children.name}, "}.join
+    end
+
+    def obtainable_children
+        orphans=[]
+        Child.adopt_available.map{|children| orphans.push(children.name)}
+        return orphans
+    end
+
 end

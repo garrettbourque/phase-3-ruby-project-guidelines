@@ -37,10 +37,24 @@ class FosterFamily < ActiveRecord::Base
         puts "#{self.name} is no longer fostering #{child.name}."
     end
 
-    def change_address
-    end
-    def change_income
+    def change_address(new_address)
+        self.address=new_address
+        self.save
     end
 
+    def change_income(new_income)
+        self.income=new_income.to_i
+        self.save
 
+    end
+
+    def available_children
+        Child.foster_available.map{|children| puts "#{children.name}, "}.join
+    end
+
+    def obtainable_children
+        orphans=[]
+        Child.foster_available.map{|children| orphans.push(children.name)}
+        return orphans
+    end
 end
