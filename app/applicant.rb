@@ -10,7 +10,7 @@ class Applicant < ActiveRecord::Base
         Applicant.create(name: name, income: income, address: address)
     end
 
-    def adoption(child)
+    def child_care(child)
 
         #if income is >=40000 then the adoption is approved, otherwise declined
         if child.adoptability && self.income/(self.my_kids.length+1)>= 40000

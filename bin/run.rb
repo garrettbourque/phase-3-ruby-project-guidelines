@@ -76,7 +76,8 @@ menu_choice = prompt.select('What would you like to do?', ["Login","Signup"])
         elsif menu_choice ==="Care for a child"
             #need to list out kids and then have them as choices
             child_choice = prompt.select('Which would you like?',[user.obtainable_children])
-            
+            user.child_care(Child.all.select{|child| child.name==child_choice}.first)
+
         end
         continue = prompt.select('Would you like to go to main menu or exit?', ["Main Menu","Exit"])
         if continue == "Exit"

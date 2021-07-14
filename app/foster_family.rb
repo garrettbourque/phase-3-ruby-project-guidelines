@@ -11,7 +11,7 @@ class FosterFamily < ActiveRecord::Base
         FosterFamily.create(name: name, income: income, address: address)
     end
 
-    def foster_child(child)
+    def child_care(child)
 
         #if income is >=40000 then the adoption is approved, otherwise declined
         if child.fosterability && self.my_kids.length < self.max_children
