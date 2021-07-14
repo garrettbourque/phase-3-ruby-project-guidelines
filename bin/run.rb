@@ -1,6 +1,6 @@
 require_relative '../config/environment'
 prompt = TTY::Prompt.new
-
+ActiveRecord::Base.logger.level = 1
 current_user=nil
 choice=true
 
