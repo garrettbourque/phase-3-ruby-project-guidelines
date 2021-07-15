@@ -7,7 +7,7 @@ choice=true
 
 
 while choice do
-    name_response = prompt.ask("would you like to Adopt or Foster?")
+    name_response = prompt.select('Would you like to Adopt or Foster?',["Adopt","Foster"])
     if name_response.downcase=="foster"
         puts "So you want to foster"
         choice=false

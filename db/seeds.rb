@@ -26,6 +26,8 @@ c9=Child.create(name: "Brianna", age: 10, sex: "female")
 c10=Child.create(name: "Daniel", age: 1, sex: "male")
 c11=Child.create(name: "Hadi", age: 12, sex: "male")
 c12=Child.create(name: "Nahum", age: 6, sex: "male")
+c13=Child.create(name: "Nebula", age: 6, sex: "female")
+c14=Child.create(name: "Gamora", age: 6, sex: "female")
 
 
 puts "Seeding Adopts..."
@@ -52,7 +54,8 @@ foster3=Foster.create(foster_family_id: family3.id, child_id: c9.id, status:"app
 foster4=Foster.create(foster_family_id: family4.id, child_id: c10.id, status:"approved")
 foster5=Foster.create(foster_family_id: family5.id, child_id: c11.id, status:"declined")
 foster6=Foster.create(foster_family_id: family6.id, child_id: c12.id, status:"declined")
-
+foster7=Foster.create(foster_family_id: family5.id, child_id: c13.id, status:"approved")
+foster8=Foster.create(foster_family_id: family5.id, child_id: c14.id, status:"approved")
 
 
 
