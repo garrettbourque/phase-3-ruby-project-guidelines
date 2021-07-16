@@ -35,6 +35,7 @@ class Applicant < ActiveRecord::Base
         self.address=new_address
         self.save
     end
+
     def change_income(new_income)
         self.income=new_income.to_i
         self.save

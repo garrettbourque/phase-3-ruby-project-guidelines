@@ -62,11 +62,13 @@ menu_choice = prompt.select('What would you like to do?', ["Login","Signup"])
     end
     choice=true
     while choice do
-        menu_choice = prompt.select('What would you like to do?', ["View list of available children","View list of my children","Change my income", "Change my address", "Care for a child"])
+        menu_choice = prompt.select('What would you like to do?', ["View list of available children","View list of my children","View my info","Change my income", "Change my address", "Care for a child"])
         if menu_choice === "View list of available children"
             user.available_children            
         elsif menu_choice === "View list of my children"
             user.my_kids.map{|kids| puts kids.child.name}
+        elsif menu_choice === "View my info"
+            puts "Your income is #{user.income} and your address is #{user.address}"
         elsif menu_choice === "Change my income"
             new_income=prompt.ask("Please enter a new income:")
             user.change_income(new_income)
@@ -74,7 +76,6 @@ menu_choice = prompt.select('What would you like to do?', ["Login","Signup"])
             new_address=prompt.ask("Please enter a new address:")
             user.change_address(new_address)
         elsif menu_choice ==="Care for a child"
-            #need to list out kids and then have them as choices
             child_choice = prompt.select('Which would you like?',[user.obtainable_children])
             user.child_care(Child.all.select{|child| child.name==child_choice}.first)
 

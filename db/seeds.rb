@@ -32,7 +32,7 @@ c14=Child.create(name: "Gamora", age: 6, sex: "female")
 
 puts "Seeding Adopts..."
 adopt1=Adopt.create(applicant_id: a1.id, child_id: c1.id, status:"approved")
-#adopt2=Adopt.create(applicant_id: a2.id, child_id: c2.id, status:"approved")
+adopt2=Adopt.create(applicant_id: a2.id, child_id: c2.id, status:"approved")
 adopt3=Adopt.create(applicant_id: a3.id, child_id: c3.id, status:"declined")
 adopt4=Adopt.create(applicant_id: a4.id, child_id: c4.id, status:"approved")
 adopt5=Adopt.create(applicant_id: a5.id, child_id: c5.id, status:"approved")
